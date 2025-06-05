@@ -35,7 +35,7 @@ const main = async () => {
     console.log(nameJson);
     console.log(`开始上传 ${name} 包`);
     console.log();
-    execSync(`pnpm publish --access public`, {
+    execSync(`pnpm publish --no-git-checks --access public`, {
       encoding: 'utf-8',
       cwd: __dirname,
       stdio: 'inherit'
