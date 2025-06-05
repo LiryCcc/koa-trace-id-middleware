@@ -18,19 +18,24 @@ const main = async () => {
   await rm(pj);
   for (const name of names) {
     console.log(`写入 ${name} 包`);
-    await writeFile(
-      pj,
-      JSON.stringify(
-        {
-          ...packageJson,
-          name
-        },
-        null,
-        2
-      )
+    const nameJson = JSON.stringify(
+      {
+        ...packageJson,
+        name,
+        publishConfig: name.includes('@')
+          ? undefined
+          : {
+              access: 'public'
+            }
+      },
+      null,
+      2
     );
+    await writeFile(pj, nameJson);
+    console.log(nameJson);
     console.log(`开始上传 ${name} 包`);
-    execSync(`pnpm publish --no-git-checks --access public`, {
+    console.log();
+    execSync(`pnpm publish --access public`, {
       encoding: 'utf-8',
       cwd: __dirname,
       stdio: 'inherit'
