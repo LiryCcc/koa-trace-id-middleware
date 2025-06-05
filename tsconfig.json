@@ -4,6 +4,7 @@
     "isolatedModules": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "lib": ["ESNext"],
     "allowJs": true,
     "resolveJsonModule": true,
     "noEmit": true,
