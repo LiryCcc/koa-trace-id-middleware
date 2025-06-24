@@ -12,16 +12,11 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "system": "./dist/index.system.js",
-      "amd": "./dist/index.amd.js",
       "types": "./dist/index.d.ts"
     }
   },
   "main": "dist/index.cjs",
-  "jsdelivr": "dist/index.umd.min.js",
-  "unpkg": "dist/index.umd.min.js",
   "module": "dist/index.js",
-  "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -66,7 +61,6 @@
   },
   "peerDependencies": {
     "@types/node": "^20 || ^22 || ^24",
-    "dayjs": "^1",
     "koa": "^3 || ^2"
   },
   "packageManager": "pnpm@10.11.0",

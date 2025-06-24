@@ -6,7 +6,6 @@ import { defineConfig } from 'rollup';
 import clear from 'rollup-plugin-clear';
 
 const outDir = 'dist';
-const name = 'LiryKoaMiddleware';
 
 const rollupConfig = defineConfig({
   input: 'src/index.ts',
@@ -23,55 +22,9 @@ const rollupConfig = defineConfig({
       format: 'es',
       entryFileNames: 'index.js',
       sourcemap: true
-    },
-    {
-      dir: outDir,
-      format: 'umd',
-      name,
-      entryFileNames: 'index.umd.js',
-      sourcemap: true
-    },
-
-    // 新增格式
-    {
-      dir: outDir,
-      format: 'iife',
-      name,
-      entryFileNames: 'index.iife.js',
-      sourcemap: true
-    },
-    {
-      dir: outDir,
-      format: 'amd',
-      entryFileNames: 'index.amd.js',
-      sourcemap: true
-    },
-    {
-      dir: outDir,
-      format: 'system',
-      entryFileNames: 'index.system.js',
-      sourcemap: true
-    },
-
-    // 可选：添加压缩版本
-    {
-      dir: outDir,
-      format: 'umd',
-      name,
-      entryFileNames: 'index.umd.min.js',
-      plugins: [terser()],
-      sourcemap: true
-    },
-    {
-      dir: outDir,
-      format: 'iife',
-      name,
-      entryFileNames: 'index.iife.min.js',
-      plugins: [terser()],
-      sourcemap: true
     }
   ],
-  external: ['koa', 'dayjs'],
+  external: ['koa'],
   plugins: [
     clear({
       targets: [outDir]
